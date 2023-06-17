@@ -6,4 +6,10 @@
     </style>
 
     <style name="Theme.MovilesSoftware2023A" parent="Base.Theme.MovilesSoftware2023A" />
+
+
+<style name="Base.Theme.MovilesSoftware2023A.NoActionBar">
+    <item name="windowActionBar">false</item>
+    <item name="windowNoTitle">true</item>
+</style>
 </resources>
