@@ -80,6 +80,7 @@ class Console(private val crud: Crud) {
             when (opcion) {
                 1 -> crud.crearPlatilloARestaurante()
                 2 -> crud.listarPlatillos()
+                4 -> crud.eliminarPlatillo()
                 0 -> mostrarMenuPrincipal()
                 else -> println("Opción inválida")
             }

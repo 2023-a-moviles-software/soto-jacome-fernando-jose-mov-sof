@@ -4,7 +4,6 @@ import java.io.File
 class Crud(private val gson: Gson) {
     private val restaurantes: MutableList<Restaurante> = mutableListOf()
     private val console: Console = Console(this)
-    var listaPlatillos: MutableList<Platillo> = mutableListOf()
 
     init {
         cargarDatos()
@@ -43,17 +42,44 @@ class Crud(private val gson: Gson) {
 
 
     // UPDATE RESTAURANTE
+    // UPDATE RESTAURANTE
+    fun actualizarRestaurante() {
+        val idRestaurante = console.obtenerInt("Ingrese el ID del restaurante a actualizar: ")
+        val restaurante = obtenerRestaurantePorId(idRestaurante)
+
+        if (restaurante != null) {
+            println("Ingrese los nuevos datos del restaurante:")
+            val nuevoNombre = console.obtenerTexto("Nuevo nombre del restaurante: ")
+            val nuevaDireccion = console.obtenerTexto("Nueva dirección del restaurante: ")
+            val nuevaCiudad = console.obtenerTexto("Nueva ciudad del restaurante: ")
+            val nuevaMichelin = console.obtenerInt("Nueva cantidad de estrellas Michelin: ")
+            val nuevoPais = console.obtenerTexto("Nuevo país del restaurante: ")
+
+            restaurante.nombre = nuevoNombre
+            restaurante.direccion = nuevaDireccion
+            restaurante.ciudad = nuevaCiudad
+            restaurante.michelin = nuevaMichelin
+            restaurante.pais = nuevoPais
+
+            guardarDatos()
+
+            println("Restaurante actualizado exitosamente.")
+        } else {
+            println("Restaurante no encontrado.")
+        }
+    }
 
 
     // DELETE RESTAURANTE
     fun eliminarRestaurante() {
-        var maximoIdRestaurante: Int = restaurantes.maxOfOrNull { it.id } ?: 0
+        val maximoIdRestaurante: Int = restaurantes.maxOfOrNull { it.id } ?: 0
 
         while (true) {
             val id = console.obtenerInt("Ingrese el ID del restaurante a eliminar: ")
 
             if (id in 1..maximoIdRestaurante) {
                 eliminarRestauranteById(id)
+                guardarDatos()
                 println("Restaurante eliminado exitosamente.")
                 break
             } else {
@@ -96,13 +122,59 @@ class Crud(private val gson: Gson) {
 
     // READ PLATILLO
     fun listarPlatillos() {
-        println(listaPlatillos)
+        val platillos = obtenerListaPlatillos()
+        println(platillos)
     }
 
     // UPDATE PLATILLO
+    fun actualizarPlatillo() {
+        val idRestaurante = console.obtenerInt("Ingrese el ID del restaurante donde se encuentra el platillo a actualizar: ")
+        val restaurante = obtenerRestaurantePorId(idRestaurante)
+
+        if (restaurante != null) {
+            println("Los platillos disponibles para actualizar son los siguientes:")
+            println(restaurante.platillos)
+
+            val idPlatillo = console.obtenerInt("Ingrese el ID del platillo a actualizar: ")
+            val platillo = obtenerPlatilloPorId(idPlatillo)
+
+            if (platillo != null) {
+                println("Ingrese los nuevos datos del platillo:")
+                val nuevoNombre = console.obtenerTexto("Nuevo nombre del platillo: ")
+                val nuevaDescripcion = console.obtenerTexto("Nueva descripción del platillo: ")
+                val nuevoPrecio = console.obtenerDouble("Nuevo precio del platillo: ")
+
+                platillo.nombre = nuevoNombre
+                platillo.descripcion = nuevaDescripcion
+                platillo.precio = nuevoPrecio
+
+                guardarDatos()
+
+                println("Platillo actualizado exitosamente.")
+            } else {
+                println("Platillo no encontrado.")
+            }
+        } else {
+            println("Restaurante no encontrado.")
+        }
+    }
 
 
     // DELETE PLATILLO
+    fun eliminarPlatillo() {
+        val idRestaurante = console.obtenerInt("Ingrese el ID del restaurante donde se encuentra el platillo a eliminar: ")
+        val restaurante: Restaurante? = obtenerRestaurantePorId(idRestaurante)
+
+        println("Los platillos disponibles para eliminar son los siguientes:")
+        println(restaurante?.platillos)
+
+        val idPlatillo = console.obtenerInt("Ingrese el ID del platillo a eliminar: ")
+        val platillo: Platillo? = obtenerPlatilloPorId(idPlatillo)
+
+        restaurante?.platillos?.remove(platillo)
+
+       guardarDatos()
+    }
 
 
     // FUNCIONES PRIVADAS
@@ -111,33 +183,26 @@ class Crud(private val gson: Gson) {
     }
 
     private fun generarNuevoIdPlatillo(): Int {
-        return if (listaPlatillos.isEmpty()) 1 else listaPlatillos.maxByOrNull { it.id }!!.id + 1
+        val platillos = obtenerListaPlatillos()
+        return if (platillos.isEmpty()) 1 else platillos.maxByOrNull { it.id }!!.id + 1
     }
 
 
     fun obtenerListaPlatillos(): MutableList<Platillo> {
+        val platillos = mutableListOf<Platillo>()
         if (restaurantes.isNotEmpty()) {
             for (restaurante in restaurantes) {
                 for (platillo in restaurante.platillos) {
-                    listaPlatillos.add(platillo)
+                    platillos.add(platillo)
                 }
             }
         } else {
             println("No existen restaurantes registrados")
         }
-        if (listaPlatillos.isEmpty()) println("No existen platillos registrados")
-        return listaPlatillos
+        if (platillos.isEmpty()) println("No existen platillos registrados")
+        return platillos
     }
 
-    private fun cargarDatos() {
-        val file = File("restaurantes.json")
-        if (file.exists()) {
-            val json = file.readText()
-            val restauranteArray = gson.fromJson(json, Array<Restaurante>::class.java)
-            restaurantes.addAll(restauranteArray)
-        }
-        obtenerListaPlatillos()
-    }
 
     private fun guardarDatos() {
         val json = gson.toJson(restaurantes)
@@ -149,11 +214,24 @@ class Crud(private val gson: Gson) {
     private fun obtenerRestaurantePorId(id: Int): Restaurante? {
         return restaurantes.find { it.id == id }
     }
+    private fun obtenerPlatilloPorId(id: Int): Platillo? {
+        val platillos = obtenerListaPlatillos()
+        return platillos.find { it.id == id }
+    }
 
     fun eliminarRestauranteById(id: Int) {
-        var restaurante: Restaurante? = obtenerRestaurantePorId(id)
+        val restaurante: Restaurante? = obtenerRestaurantePorId(id)
         restaurantes.remove(restaurante)
     }
 
+    private fun cargarDatos() {
+        val file = File("restaurantes.json")
+        if (file.exists()) {
+            val json = file.readText()
+            val restauranteArray = gson.fromJson(json, Array<Restaurante>::class.java)
+            restaurantes.addAll(restauranteArray)
+        }
+        obtenerListaPlatillos()
+    }
 
 }
