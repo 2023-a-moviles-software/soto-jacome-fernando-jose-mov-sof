@@ -23,7 +23,7 @@ class Console(private val crud: Crud) {
             when (opcion) {
                 1 -> mostrarOpcionesRestaurante()
                 2 -> mostrarOpcionesPlatillo()
-                0 -> println("¡Hasta luego!")
+                0 -> break
 
                 else -> println("Opción inválida")
             }
@@ -53,6 +53,7 @@ class Console(private val crud: Crud) {
             when (opcion) {
                 1 -> crud.crearRestaurante()
                 2 -> crud.listarRestaurantes()
+                3 -> crud.actualizarRestaurante()
                 4 -> crud.eliminarRestaurante()
                 0 -> mostrarMenuPrincipal()
 
@@ -80,6 +81,7 @@ class Console(private val crud: Crud) {
             when (opcion) {
                 1 -> crud.crearPlatilloARestaurante()
                 2 -> crud.listarPlatillos()
+                3 -> crud.actualizarPlatillo()
                 4 -> crud.eliminarPlatillo()
                 0 -> mostrarMenuPrincipal()
                 else -> println("Opción inválida")

@@ -44,6 +44,8 @@ class Crud(private val gson: Gson) {
     // UPDATE RESTAURANTE
     // UPDATE RESTAURANTE
     fun actualizarRestaurante() {
+
+        listarRestaurantes()
         val idRestaurante = console.obtenerInt("Ingrese el ID del restaurante a actualizar: ")
         val restaurante = obtenerRestaurantePorId(idRestaurante)
 
@@ -123,36 +125,50 @@ class Crud(private val gson: Gson) {
     // READ PLATILLO
     fun listarPlatillos() {
         val platillos = obtenerListaPlatillos()
-        println(platillos)
+        for (platillo in platillos) {
+            println(platillo)
+        }
     }
 
     // UPDATE PLATILLO
     fun actualizarPlatillo() {
-        val idRestaurante = console.obtenerInt("Ingrese el ID del restaurante donde se encuentra el platillo a actualizar: ")
+        listarRestaurantes()
+        val idRestaurante =
+            console.obtenerInt("\nIngrese el ID del restaurante donde se encuentra el platillo a actualizar: ")
         val restaurante = obtenerRestaurantePorId(idRestaurante)
 
         if (restaurante != null) {
             println("Los platillos disponibles para actualizar son los siguientes:")
-            println(restaurante.platillos)
 
-            val idPlatillo = console.obtenerInt("Ingrese el ID del platillo a actualizar: ")
-            val platillo = obtenerPlatilloPorId(idPlatillo)
+            for (platillo in restaurante.platillos) {
+                println(platillo)
 
-            if (platillo != null) {
-                println("Ingrese los nuevos datos del platillo:")
-                val nuevoNombre = console.obtenerTexto("Nuevo nombre del platillo: ")
-                val nuevaDescripcion = console.obtenerTexto("Nueva descripción del platillo: ")
-                val nuevoPrecio = console.obtenerDouble("Nuevo precio del platillo: ")
+            }
 
-                platillo.nombre = nuevoNombre
-                platillo.descripcion = nuevaDescripcion
-                platillo.precio = nuevoPrecio
 
-                guardarDatos()
+            if (restaurante.platillos.isNotEmpty()) {
 
-                println("Platillo actualizado exitosamente.")
+                val idPlatillo = console.obtenerInt("\nIngrese el ID del platillo a actualizar: ")
+                val platillo = obtenerPlatilloPorId(idPlatillo)
+
+                if (platillo != null) {
+                    println("Ingrese los nuevos datos del platillo:")
+                    val nuevoNombre = console.obtenerTexto("Nuevo nombre del platillo: ")
+                    val nuevaDescripcion = console.obtenerTexto("Nueva descripción del platillo: ")
+                    val nuevoPrecio = console.obtenerDouble("Nuevo precio del platillo: ")
+
+                    platillo.nombre = nuevoNombre
+                    platillo.descripcion = nuevaDescripcion
+                    platillo.precio = nuevoPrecio
+
+                    guardarDatos()
+
+                    println("Platillo actualizado exitosamente.")
+                } else {
+                    println("Platillo no encontrado.")
+                }
             } else {
-                println("Platillo no encontrado.")
+                println("No existen platillos en ese restaurante")
             }
         } else {
             println("Restaurante no encontrado.")
@@ -162,7 +178,8 @@ class Crud(private val gson: Gson) {
 
     // DELETE PLATILLO
     fun eliminarPlatillo() {
-        val idRestaurante = console.obtenerInt("Ingrese el ID del restaurante donde se encuentra el platillo a eliminar: ")
+        val idRestaurante =
+            console.obtenerInt("Ingrese el ID del restaurante donde se encuentra el platillo a eliminar: ")
         val restaurante: Restaurante? = obtenerRestaurantePorId(idRestaurante)
 
         println("Los platillos disponibles para eliminar son los siguientes:")
@@ -173,7 +190,7 @@ class Crud(private val gson: Gson) {
 
         restaurante?.platillos?.remove(platillo)
 
-       guardarDatos()
+        guardarDatos()
     }
 
 
@@ -214,6 +231,7 @@ class Crud(private val gson: Gson) {
     private fun obtenerRestaurantePorId(id: Int): Restaurante? {
         return restaurantes.find { it.id == id }
     }
+
     private fun obtenerPlatilloPorId(id: Int): Platillo? {
         val platillos = obtenerListaPlatillos()
         return platillos.find { it.id == id }
