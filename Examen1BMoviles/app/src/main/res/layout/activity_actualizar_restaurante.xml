@@ -6,4 +6,102 @@
     android:layout_height="match_parent"
     tools:context=".ActualizarRestaurante">
 
+    <TextView
+        android:id="@+id/txt_titulo_activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Actulizar restaurante"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.056" />
+
+    <EditText
+        android:id="@+id/input_update_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="160dp"
+        android:ems="10"
+        android:hint="Ingre nuevo id"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/txt_titulo_activity"
+        app:layout_constraintStart_toStartOf="@+id/txt_titulo_activity"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_ingrese_actualizacion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:text="Ingresa datos de actualización"
+        app:layout_constraintEnd_toEndOf="@+id/txt_titulo_activity"
+        app:layout_constraintStart_toStartOf="@+id/txt_titulo_activity"
+        app:layout_constraintTop_toBottomOf="@+id/txt_titulo_activity" />
+
+    <EditText
+        android:id="@+id/input_update_nombre_res"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="224dp"
+        android:ems="10"
+        android:hint="Ingrese nuevo nombre"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/input_update_id"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/input_update_id"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/input_update_direccion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="288dp"
+        android:ems="10"
+        android:hint="Ingrese nueva direccion"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/input_update_nombre_res"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/input_update_nombre_res"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/input_update_ciudad"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="352dp"
+        android:ems="10"
+        android:hint="Ingrese nueva ciudad"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/input_update_direccion"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/input_update_direccion"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/input_update_michelin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="416dp"
+        android:ems="10"
+        android:hint="Ingrese nuevas estrellas michelin"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/input_update_ciudad"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/input_update_ciudad"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_actualizar_res"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="160dp"
+        android:text="Actualizar"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/input_update_michelin"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="@+id/input_update_michelin" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

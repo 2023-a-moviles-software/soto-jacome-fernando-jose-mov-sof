@@ -1,7 +1,10 @@
 package com.example.examen1bmoviles
 
+import android.app.Activity
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.ContextMenu
 import android.view.MenuItem
 import android.view.View
@@ -10,11 +13,20 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ListView
+import androidx.activity.result.contract.ActivityResultContracts
 
 class ListViewRestaurante : AppCompatActivity() {
+
+    // Variables
     val arregloRestaurante = BaseDatosMemoria.arregloRestaurante
     var idItemSeleccionado = 0
-    lateinit var adaptador: ArrayAdapter<Restaurante>
+
+    companion object {
+        lateinit var adaptador: ArrayAdapter<Restaurante>
+    }
+
+
+    // On create
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list_view_restaurante)
@@ -42,6 +54,7 @@ class ListViewRestaurante : AppCompatActivity() {
 
     }
 
+
     override fun onCreateContextMenu(
         menu: ContextMenu?,
         v: View?,
@@ -61,24 +74,20 @@ class ListViewRestaurante : AppCompatActivity() {
     override fun onContextItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_editar_res -> {
-                print("editar")
-
-                /*
-                *  Capturar id
-                *  Abrir nueva activity
-                *
-                * */
-
+                irActividadActualizarRestaurante(ActualizarRestaurante::class.java)
                 return true
             }
+
             R.id.menu_eliminar_res -> {
                 eliminarRestaurante(adaptador, idItemSeleccionado)
                 return true
             }
+
             R.id.menu_platillos_res -> {
                 print("platillos")
                 return true
             }
+
             else -> super.onContextItemSelected(item)
         }
     }
@@ -106,6 +115,13 @@ class ListViewRestaurante : AppCompatActivity() {
             )
         )
         adaptador.notifyDataSetChanged()
+
+        // Borrar el texto de los campos de entrada después de crear el restaurante
+        id.text.clear()
+        nombreRestaurante.text.clear()
+        direccion.text.clear()
+        ciudad.text.clear()
+        michelin.text.clear()
     }
 
     // UPDATE
@@ -119,5 +135,14 @@ class ListViewRestaurante : AppCompatActivity() {
 
     }
 
+    // Privadas
 
+    fun irActividadActualizarRestaurante(
+        clase: Class<*>
+    ) {
+        val intent = Intent(this, clase)
+        intent.putExtra("idItemSeleccionado", idItemSeleccionado)
+
+        startActivity(intent)
+    }
 }

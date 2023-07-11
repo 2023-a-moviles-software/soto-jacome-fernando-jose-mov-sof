@@ -7,7 +7,8 @@ class Restaurante (
     var ciudad: String,
     var michelin: Int,
     var platillos: MutableList<Platillo> = mutableListOf()
-){
+) {
+
     override fun toString(): String {
         return "id: ${id} " +
                 "\nnombre: ${nombre} " +
