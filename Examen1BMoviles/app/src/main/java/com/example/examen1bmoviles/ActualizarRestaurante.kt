@@ -7,26 +7,28 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 
 class ActualizarRestaurante : AppCompatActivity() {
+    var idItemSeleccionado = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_actualizar_restaurante)
 
+        idItemSeleccionado = intent.getIntExtra("idItemSeleccionado",0)
+
         val botonActualizar = findViewById<Button>(R.id.btn_actualizar_res)
         botonActualizar.setOnClickListener {
             actualizarRestaurante()
         }
-
+        mostrarNombreViejoRestaurante()
 
     }
 
     private fun actualizarRestaurante() {
 
-        val idItemSeleccionado = intent.getIntExtra("idItemSeleccionado",0)
-        Log.d("item", idItemSeleccionado.toString() + ": Entré a actualizarRestaurante()")
 
         // Obtener los nuevos valores de los elementos de la interfaz de usuario
         val nuevoId = findViewById<EditText>(R.id.input_update_id)
@@ -49,6 +51,13 @@ class ActualizarRestaurante : AppCompatActivity() {
         ListViewRestaurante.adaptador.notifyDataSetChanged()
 
         finish()
+    }
+
+    private fun mostrarNombreViejoRestaurante(){
+        val selectObjRestaurante = BaseDatosMemoria.arregloRestaurante[idItemSeleccionado]
+        val selectTextoRestaurante =findViewById<TextView>(R.id.txt_seleccionado_res)
+
+        selectTextoRestaurante.text = selectObjRestaurante.nombre.toString()
     }
 }
 
