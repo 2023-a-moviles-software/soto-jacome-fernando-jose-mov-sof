@@ -15,5 +15,9 @@ class BaseDatosMemoria {
                 Restaurante(3, "TabladelToro", "Francia", "Paris", 1)
             )
         }
+
+        fun eliminarRestaurante(idEliminado: Int){
+            arregloRestaurante.removeAt(idEliminado)
+        }
     }
 }
