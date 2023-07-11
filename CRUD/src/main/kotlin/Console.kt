@@ -7,7 +7,7 @@ class Console(private val crud: Crud) {
 
 
     // Menú principal
-    fun mostrarMenuPrincipal() {
+    fun ejecutarMenuPrincipal() {
         var opcion: Int
         do {
             println("---------------OPCIONES---------------")
@@ -55,7 +55,7 @@ class Console(private val crud: Crud) {
                 2 -> crud.listarRestaurantes()
                 3 -> crud.actualizarRestaurante()
                 4 -> crud.eliminarRestaurante()
-                0 -> mostrarMenuPrincipal()
+                0 -> ejecutarMenuPrincipal()
 
                 else -> println("Opción inválida")
             }
@@ -83,7 +83,7 @@ class Console(private val crud: Crud) {
                 2 -> crud.listarPlatillos()
                 3 -> crud.actualizarPlatillo()
                 4 -> crud.eliminarPlatillo()
-                0 -> mostrarMenuPrincipal()
+                0 -> ejecutarMenuPrincipal()
                 else -> println("Opción inválida")
             }
             println()

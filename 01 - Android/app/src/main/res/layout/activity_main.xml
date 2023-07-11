@@ -24,11 +24,37 @@
         android:id="@+id/btn_ciclo_vida"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="76dp"
+        android:layout_marginBottom="72dp"
         android:text="Ciclo Vida"
         app:layout_constraintBottom_toTopOf="@+id/textView16"
         app:layout_constraintEnd_toEndOf="@+id/textView16"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/textView16" />
+
+    <Button
+        android:id="@+id/btn_ir_list_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="List View"
+        tools:layout_editor_absoluteX="156dp"
+        tools:layout_editor_absoluteY="120dp" />
+
+    <Button
+        android:id="@+id/btn_ir_intent_implicito"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1. Implicito"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_ir_list_view"
+        app:layout_constraintTop_toTopOf="@+id/btn_ir_list_view"
+        tools:layout_editor_absoluteX="16dp" />
+
+    <Button
+        android:id="@+id/btn_ir_intent_explicito"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="2. EXPLICITO"
+        app:layout_constraintBottom_toBottomOf="@+id/btn_ir_list_view"
+        app:layout_constraintTop_toTopOf="@+id/btn_ir_list_view"
+        tools:layout_editor_absoluteX="277dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

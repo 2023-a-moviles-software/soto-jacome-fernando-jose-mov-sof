@@ -213,10 +213,7 @@ class Crud(private val gson: Gson) {
                     platillos.add(platillo)
                 }
             }
-        } else {
-            println("No existen restaurantes registrados")
         }
-        if (platillos.isEmpty()) println("No existen platillos registrados")
         return platillos
     }
 
