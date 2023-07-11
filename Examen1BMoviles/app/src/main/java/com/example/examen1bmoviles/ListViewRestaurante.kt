@@ -37,14 +37,14 @@ class ListViewRestaurante : AppCompatActivity() {
     fun anadirRestaurante(
         adaptador: ArrayAdapter<Restaurante>
     ){
-        val id = findViewById<EditText>(R.id.input_id).toString()
-        val nombreRestaurante = findViewById<EditText>(R.id.input_nombre).toString()
-        val direccion = findViewById<EditText>(R.id.input_direccion).toString()
-        val ciudad = findViewById<EditText>(R.id.input_ciudad).toString()
-        val michelin = findViewById<EditText>(R.id.input_michelin).toString()
+        val id = findViewById<EditText>(R.id.input_id)
+        val nombreRestaurante = findViewById<EditText>(R.id.input_nombre)
+        val direccion = findViewById<EditText>(R.id.input_direccion)
+        val ciudad = findViewById<EditText>(R.id.input_ciudad)
+        val michelin = findViewById<EditText>(R.id.input_michelin)
         arregloRestaurante.add(
 
-            Restaurante(id.toInt(), nombreRestaurante, direccion, ciudad, michelin.toInt())
+            Restaurante(id.text.toString().toInt(), nombreRestaurante.text.toString(), direccion.text.toString(), ciudad.text.toString(), michelin.text.toString().toInt())
         )
         adaptador.notifyDataSetChanged()
     }
