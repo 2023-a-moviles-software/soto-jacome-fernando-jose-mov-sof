@@ -1,10 +1,7 @@
 package com.example.examen1bmoviles
 
-import android.app.Activity
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -23,7 +20,7 @@ class ActualizarRestaurante : AppCompatActivity() {
         botonActualizar.setOnClickListener {
             actualizarRestaurante()
         }
-        mostrarNombreViejoRestaurante()
+        mostrarInformacionViejoRestaurante()
 
     }
 
@@ -53,11 +50,16 @@ class ActualizarRestaurante : AppCompatActivity() {
         finish()
     }
 
-    private fun mostrarNombreViejoRestaurante(){
-        val selectObjRestaurante = BaseDatosMemoria.arregloRestaurante[idItemSeleccionado]
-        val selectTextoRestaurante =findViewById<TextView>(R.id.txt_seleccionado_res)
+    private fun mostrarInformacionViejoRestaurante(){
+        val viejoRestaurante = BaseDatosMemoria.arregloRestaurante[idItemSeleccionado]
 
-        selectTextoRestaurante.text = selectObjRestaurante.nombre.toString()
+        // Se carga toda la información del restaurante seleccionado en la nueva vista
+        findViewById<TextView>(R.id.txt_seleccionado_res).text = viejoRestaurante.nombre
+        findViewById<TextView>(R.id.input_update_id).text = viejoRestaurante.id.toString()
+        findViewById<TextView>(R.id.input_update_nombre_res).text = viejoRestaurante.nombre
+        findViewById<TextView>(R.id.input_update_direccion).text = viejoRestaurante.direccion
+        findViewById<TextView>(R.id.input_update_ciudad).text = viejoRestaurante.ciudad
+        findViewById<TextView>(R.id.input_update_michelin).text = viejoRestaurante.michelin.toString()
     }
 }
 

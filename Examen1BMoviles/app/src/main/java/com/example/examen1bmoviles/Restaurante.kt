@@ -14,7 +14,7 @@ class Restaurante (
                 "\nnombre: ${nombre} " +
                 "\ndireccion: ${direccion} " +
                 "\nciudad: ${ciudad} " +
-                "\nmichelin: ${michelin}" +
-                "\nplatillos: ${platillos}"
+                "\nmichelin: ${michelin}" /*+
+                "\nplatillos: ${platillos}"*/
     }
 }

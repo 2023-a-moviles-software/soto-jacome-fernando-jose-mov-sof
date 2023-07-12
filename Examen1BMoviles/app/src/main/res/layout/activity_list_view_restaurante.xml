@@ -9,36 +9,25 @@
     <ListView
         android:id="@+id/lv_list_view_restaurante"
         android:layout_width="292dp"
-        android:layout_height="223dp"
+        android:layout_height="280dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.119" />
 
-    <Button
-        android:id="@+id/btn_aniadir_list_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="Crear"
-        app:layout_constraintEnd_toEndOf="@+id/input_michelin"
-        app:layout_constraintHorizontal_bias="0.483"
-        app:layout_constraintStart_toStartOf="@+id/input_michelin"
-        app:layout_constraintTop_toBottomOf="@+id/input_michelin" />
-
     <EditText
-        android:id="@+id/input_id"
+        android:id="@+id/input_ciudad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="8dp"
         android:ems="10"
-        android:hint="Ingrese id"
+        android:hint="Ingrese ciudad"
         android:inputType="text"
-        app:layout_constraintEnd_toEndOf="@+id/lv_list_view_restaurante"
-        app:layout_constraintHorizontal_bias="0.487"
-        app:layout_constraintStart_toStartOf="@+id/lv_list_view_restaurante"
-        app:layout_constraintTop_toBottomOf="@+id/lv_list_view_restaurante" />
+        app:layout_constraintEnd_toEndOf="@+id/input_direccion"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/input_direccion"
+        app:layout_constraintTop_toBottomOf="@+id/input_direccion" />
 
     <EditText
         android:id="@+id/input_nombre"
@@ -49,15 +38,38 @@
         android:hint="Ingrese nombre"
         android:inputType="text"
         app:layout_constraintEnd_toEndOf="@+id/input_id"
-        app:layout_constraintHorizontal_bias="0.282"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/input_id"
         app:layout_constraintTop_toBottomOf="@+id/input_id" />
+
+    <Button
+        android:id="@+id/btn_aniadir_list_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Crear"
+        app:layout_constraintEnd_toEndOf="@+id/input_michelin"
+        app:layout_constraintStart_toStartOf="@+id/input_michelin"
+        app:layout_constraintTop_toBottomOf="@+id/input_michelin" />
+
+    <EditText
+        android:id="@+id/input_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:ems="10"
+        android:hint="Ingrese id"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/lv_list_view_restaurante"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="@+id/lv_list_view_restaurante"
+        app:layout_constraintTop_toBottomOf="@+id/lv_list_view_restaurante" />
 
     <EditText
         android:id="@+id/input_direccion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Ingrese direccion"
         android:inputType="text"
@@ -66,24 +78,23 @@
         app:layout_constraintStart_toStartOf="@+id/input_nombre"
         app:layout_constraintTop_toBottomOf="@+id/input_nombre" />
 
-    <EditText
-        android:id="@+id/input_ciudad"
+    <TextView
+        android:id="@+id/tv_crear"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:ems="10"
-        android:hint="Ingrese ciudad"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="@+id/input_direccion"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/input_direccion"
-        app:layout_constraintTop_toBottomOf="@+id/input_direccion" />
+        android:layout_marginTop="36dp"
+        android:text="Ingrese un nuevo restaurante"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/lv_list_view_restaurante"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="@+id/lv_list_view_restaurante"
+        app:layout_constraintTop_toBottomOf="@+id/lv_list_view_restaurante" />
 
     <EditText
         android:id="@+id/input_michelin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Ingrese estrellas michelin"
         android:inputType="text"
@@ -91,17 +102,6 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/input_ciudad"
         app:layout_constraintTop_toBottomOf="@+id/input_ciudad" />
-
-    <TextView
-        android:id="@+id/tv_crear"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="Ingrese un nuevo restaurante"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="@+id/lv_list_view_restaurante"
-        app:layout_constraintStart_toStartOf="@+id/lv_list_view_restaurante"
-        app:layout_constraintTop_toBottomOf="@+id/lv_list_view_restaurante" />
 
     <TextView
         android:id="@+id/tv_lista_restaurante"
