@@ -2,6 +2,7 @@ package com.example.examen1bmoviles
 
 class BaseDatosMemoria {
     companion object {
+
         val arregloRestaurante = arrayListOf<Restaurante>()
         val arregloPlatillo = arrayListOf<Platillo>()
 

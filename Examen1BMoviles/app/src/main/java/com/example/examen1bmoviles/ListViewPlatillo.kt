@@ -151,10 +151,10 @@ class ListViewPlatillo : AppCompatActivity() {
 
         // Modificar el arreglo general de platillos
         val index = BaseDatosMemoria.arregloPlatillo.indexOfFirst { it.id == viejoPlatillo.id }
-        val platilloEliminar = BaseDatosMemoria.arregloPlatillo[index]
-        BaseDatosMemoria.arregloPlatillo.remove(platilloEliminar)
+        //val platilloEliminar = BaseDatosMemoria.arregloPlatillo[index]
+        //BaseDatosMemoria.arregloPlatillo.remove(platilloEliminar)
 
-        //arregloPlatillo.removeAt(idEliminado)
+        arregloPlatillo.removeAt(index)
         adaptador.notifyDataSetChanged()
 
     }

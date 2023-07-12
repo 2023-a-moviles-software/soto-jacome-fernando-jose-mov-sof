@@ -45,6 +45,7 @@ class CreacionPlatillo : AppCompatActivity() {
 
 
         ListViewPlatillo.adaptadorPlatillo.notifyDataSetChanged()
+        finish()
 
 
     }
@@ -56,6 +57,6 @@ class CreacionPlatillo : AppCompatActivity() {
 
     private fun asignarIdPlatillo() : Int{
         val idMax = BaseDatosMemoria.arregloPlatillo.maxByOrNull { platillo -> platillo.id }?.id ?: 0
-        return idMax
+        return idMax + 1
     }
 }

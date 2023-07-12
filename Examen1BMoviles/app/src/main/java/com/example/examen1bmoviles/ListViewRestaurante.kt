@@ -42,15 +42,18 @@ class ListViewRestaurante : AppCompatActivity() {
         adaptadorRestaurante.notifyDataSetChanged()
 
 
-        // Crear un restuarante
-        val botonAniadirListViewRestaurante = findViewById<Button>(R.id.btn_aniadir_restaurante)
-        botonAniadirListViewRestaurante.setOnClickListener {
-            crearRestaurante(adaptadorRestaurante)
+        // Ir a crear restaurante
+        val botonInternoAniadirRestaurante = findViewById<Button>(R.id.btn_aniadir_externo_restaurante)
+        botonInternoAniadirRestaurante.setOnClickListener{
+            irActividadDesdeRestaurante(CreacionRestaurante::class.java)
         }
+
 
         registerForContextMenu(listViewRestaurante)
 
     }
+
+
 
 
     override fun onCreateContextMenu(
@@ -97,33 +100,7 @@ class ListViewRestaurante : AppCompatActivity() {
     // FUNCIONES CRUD
 
     //CREATE
-    fun crearRestaurante(
-        adaptador: ArrayAdapter<Restaurante>
-    ) {
-        val id = findViewById<EditText>(R.id.input_id_res)
-        val nombreRestaurante = findViewById<EditText>(R.id.input_nombre_res)
-        val direccion = findViewById<EditText>(R.id.input_direccion)
-        val ciudad = findViewById<EditText>(R.id.input_ciudad)
-        val michelin = findViewById<EditText>(R.id.input_michelin)
-        arregloRestaurante.add(
 
-            Restaurante(
-                id.text.toString().toInt(),
-                nombreRestaurante.text.toString(),
-                direccion.text.toString(),
-                ciudad.text.toString(),
-                michelin.text.toString().toInt()
-            )
-        )
-        adaptador.notifyDataSetChanged()
-
-        // Borrar el texto de los campos de entrada después de crear el restaurante
-        id.text.clear()
-        nombreRestaurante.text.clear()
-        direccion.text.clear()
-        ciudad.text.clear()
-        michelin.text.clear()
-    }
 
     // UPDATE
     // DELETE
