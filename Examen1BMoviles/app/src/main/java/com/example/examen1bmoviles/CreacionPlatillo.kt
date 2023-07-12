@@ -56,6 +56,6 @@ class CreacionPlatillo : AppCompatActivity() {
 
     private fun asignarIdPlatillo() : Int{
         val idMax = BaseDatosMemoria.arregloPlatillo.maxByOrNull { platillo -> platillo.id }?.id ?: 0
-        return idMax + 1
+        return idMax
     }
 }
