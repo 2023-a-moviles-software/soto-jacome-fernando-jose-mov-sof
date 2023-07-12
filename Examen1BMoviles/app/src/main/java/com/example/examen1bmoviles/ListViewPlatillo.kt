@@ -17,30 +17,28 @@ class ListViewPlatillo : AppCompatActivity() {
     var idItemSeleccionadoPlatillo = 0
     var restauranteId = 0
     var idItemSeleccionadoRestaurante = 0
-    val arregloPlatillo = BaseDatosMemoria.arregloPlatillo
-    var subArregloPlatilloXRest = ArrayList<Platillo>()
+
+
 
     companion object {
         lateinit var adaptadorPlatillo: ArrayAdapter<Platillo>
-
+        var subArregloPlatilloXRest = ArrayList<Platillo>()
+        val arregloPlatillo = BaseDatosMemoria.arregloPlatillo
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_list_view_platillos)
 
-
         // Se recupera las variables enviadas en la anterior vista
         idItemSeleccionadoRestaurante =
             intent.getIntExtra("idItemSeleccionado", idItemSeleccionadoRestaurante)
         restauranteId = intent.getIntExtra("restauranteId", restauranteId)
 
-
         // Generamos un subarreglo de platillos que cumplan con el restaurante seleccionado
         subArregloPlatilloXRest = arregloPlatillo.filter { platillo ->
             platillo.restauranteId == restauranteId
         } as ArrayList<Platillo>
-
 
         // Inicializar adaptador
         val listViewPlatillo = findViewById<ListView>(R.id.lv_list_view_platillo)
@@ -52,10 +50,8 @@ class ListViewPlatillo : AppCompatActivity() {
         listViewPlatillo.adapter = adaptadorPlatillo
         adaptadorPlatillo.notifyDataSetChanged()
 
-
         // Muestra el nombre del restaurante
         mostrarNombreRestaurante()
-
 
         // Aniadir un nuevo platillo
         val botonAniadirPlatillo = findViewById<Button>(
@@ -106,18 +102,27 @@ class ListViewPlatillo : AppCompatActivity() {
     override fun onContextItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_editar_platillo -> {
-
+                irActividadDesdeRestaurante(ActualizacionPlatillo::class.java)
                 return true
+
             }
 
             R.id.menu_eliminar_platillo -> {
                 eliminarPlatillo(adaptadorPlatillo, idItemSeleccionadoPlatillo)
-                adaptadorPlatillo.notifyDataSetChanged()
                 return true
             }
 
             else -> super.onContextItemSelected(item)
         }
+    }
+
+    private fun irActividadDesdeRestaurante(
+            clase: Class<*>
+        ) {
+            val intent = Intent(this, clase)
+            intent.putExtra("idItemSeleccionadoPlatillo", idItemSeleccionadoPlatillo)
+            startActivity(intent)
+
     }
 
     fun irAaniadirPlatillo(
@@ -140,8 +145,8 @@ class ListViewPlatillo : AppCompatActivity() {
         adaptador: ArrayAdapter<Platillo>,
         idEliminado: Int
     ) {
-        arregloPlatillo.removeAt(idEliminado)
         subArregloPlatilloXRest.removeAt(idEliminado)
+        arregloPlatillo.removeAt(idEliminado)
         adaptador.notifyDataSetChanged()
 
     }

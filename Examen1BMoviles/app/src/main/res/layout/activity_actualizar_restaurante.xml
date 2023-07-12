@@ -20,7 +20,7 @@
         app:layout_constraintVertical_bias="0.056" />
 
     <EditText
-        android:id="@+id/input_update_id"
+        android:id="@+id/input_update_id_res"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="212dp"
@@ -64,9 +64,9 @@
         android:ems="10"
         android:hint="Ingrese nuevo nombre"
         android:inputType="text"
-        app:layout_constraintEnd_toEndOf="@+id/input_update_id"
+        app:layout_constraintEnd_toEndOf="@+id/input_update_id_res"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/input_update_id"
+        app:layout_constraintStart_toStartOf="@+id/input_update_id_res"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
@@ -83,7 +83,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/btn_actualizar_res"
+        android:id="@+id/btn_actualizar_platillo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="132dp"
@@ -107,7 +107,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/txt_seleccionado_res"
+        android:id="@+id/txt_seleccionado_platillo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"

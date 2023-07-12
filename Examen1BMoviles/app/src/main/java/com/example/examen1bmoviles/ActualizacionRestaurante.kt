@@ -7,16 +7,16 @@ import android.widget.EditText
 import android.widget.TextView
 
 class ActualizacionRestaurante : AppCompatActivity() {
-    var idItemSeleccionado = 0
+    var idItemSeleccionadoRestaurante = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_actualizar_restaurante)
 
-        idItemSeleccionado = intent.getIntExtra("idItemSeleccionado",0)
+        idItemSeleccionadoRestaurante = intent.getIntExtra("idItemSeleccionado", 0)
 
-        val botonActualizar = findViewById<Button>(R.id.btn_actualizar_res)
+        val botonActualizar = findViewById<Button>(R.id.btn_actualizar_platillo)
         botonActualizar.setOnClickListener {
             actualizarRestaurante()
         }
@@ -28,7 +28,7 @@ class ActualizacionRestaurante : AppCompatActivity() {
 
 
         // Obtener los nuevos valores de los elementos de la interfaz de usuario
-        val nuevoId = findViewById<EditText>(R.id.input_update_id)
+        val nuevoId = findViewById<EditText>(R.id.input_update_id_res)
         val nuevoNombreRestaurante = findViewById<EditText>(R.id.input_update_nombre_res)
         val nuevaDireccion = findViewById<EditText>(R.id.input_update_direccion)
         val nuevaCiudad = findViewById<EditText>(R.id.input_update_ciudad)
@@ -44,31 +44,31 @@ class ActualizacionRestaurante : AppCompatActivity() {
         )
 
 
-        BaseDatosMemoria.arregloRestaurante[idItemSeleccionado] = restauranteActualizado
+        BaseDatosMemoria.arregloRestaurante[idItemSeleccionadoRestaurante] = restauranteActualizado
         ListViewRestaurante.adaptadorRestaurante.notifyDataSetChanged()
 
         finish()
     }
 
-    private fun mostrarInformacionRestaurante(){
-        val viejoRestaurante = BaseDatosMemoria.arregloRestaurante[idItemSeleccionado]
+    private fun mostrarInformacionRestaurante() {
+        val viejoRestaurante = BaseDatosMemoria.arregloRestaurante[idItemSeleccionadoRestaurante]
 
         // Se carga toda la información del restaurante seleccionado en la nueva vista
-        val textViewSeleccionadoRes = findViewById<TextView>(R.id.txt_seleccionado_res)
-        val inputUpdateId = findViewById<TextView>(R.id.input_update_id)
+        val textViewSeleccionadoRes = findViewById<TextView>(R.id.txt_seleccionado_platillo)
+        val inputUpdateId = findViewById<TextView>(R.id.input_update_id_res)
         val inputUpdateNombreRes = findViewById<TextView>(R.id.input_update_nombre_res)
         val inputUpdateDireccion = findViewById<TextView>(R.id.input_update_direccion)
         val inputUpdateCiudad = findViewById<TextView>(R.id.input_update_ciudad)
         val inputUpdateMichelin = findViewById<TextView>(R.id.input_update_michelin)
 
-        viejoRestaurante.let { restaurante ->
-            textViewSeleccionadoRes.text = restaurante.nombre
-            inputUpdateId.text = restaurante.id.toString()
-            inputUpdateNombreRes.text = restaurante.nombre
-            inputUpdateDireccion.text = restaurante.direccion
-            inputUpdateCiudad.text = restaurante.ciudad
-            inputUpdateMichelin.text = restaurante.michelin.toString()
-        }
+
+        textViewSeleccionadoRes.text = viejoRestaurante.nombre
+        inputUpdateId.text = viejoRestaurante.id.toString()
+        inputUpdateNombreRes.text = viejoRestaurante.nombre
+        inputUpdateDireccion.text = viejoRestaurante.direccion
+        inputUpdateCiudad.text = viejoRestaurante.ciudad
+        inputUpdateMichelin.text = viejoRestaurante.michelin.toString()
+
     }
 }
 

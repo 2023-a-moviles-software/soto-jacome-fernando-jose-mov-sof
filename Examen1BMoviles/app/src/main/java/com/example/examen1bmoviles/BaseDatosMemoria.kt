@@ -13,7 +13,7 @@ class BaseDatosMemoria {
                 Restaurante(2, "PizzHut", "Colombia", "Medellin", 2)
             )
             arregloRestaurante.add(
-                Restaurante(9, "TabladelToro", "Francia", "Paris", 1)
+                Restaurante(3, "TabladelToro", "Francia", "Paris", 1)
             )
 
             // PLATILLOOS
