@@ -30,20 +30,20 @@
         app:layout_constraintTop_toBottomOf="@+id/input_direccion" />
 
     <EditText
-        android:id="@+id/input_nombre"
+        android:id="@+id/input_nombre_res"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:ems="10"
         android:hint="Ingrese nombre"
         android:inputType="text"
-        app:layout_constraintEnd_toEndOf="@+id/input_id"
+        app:layout_constraintEnd_toEndOf="@+id/input_id_res"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/input_id"
-        app:layout_constraintTop_toBottomOf="@+id/input_id" />
+        app:layout_constraintStart_toStartOf="@+id/input_id_res"
+        app:layout_constraintTop_toBottomOf="@+id/input_id_res" />
 
     <Button
-        android:id="@+id/btn_aniadir_list_view"
+        android:id="@+id/btn_aniadir_restaurante"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -53,7 +53,7 @@
         app:layout_constraintTop_toBottomOf="@+id/input_michelin" />
 
     <EditText
-        android:id="@+id/input_id"
+        android:id="@+id/input_id_res"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="64dp"
@@ -73,10 +73,10 @@
         android:ems="10"
         android:hint="Ingrese direccion"
         android:inputType="text"
-        app:layout_constraintEnd_toEndOf="@+id/input_nombre"
+        app:layout_constraintEnd_toEndOf="@+id/input_nombre_res"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/input_nombre"
-        app:layout_constraintTop_toBottomOf="@+id/input_nombre" />
+        app:layout_constraintStart_toStartOf="@+id/input_nombre_res"
+        app:layout_constraintTop_toBottomOf="@+id/input_nombre_res" />
 
     <TextView
         android:id="@+id/tv_crear"

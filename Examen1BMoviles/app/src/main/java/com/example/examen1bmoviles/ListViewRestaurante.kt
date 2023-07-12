@@ -1,10 +1,8 @@
 package com.example.examen1bmoviles
 
-import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.ContextMenu
 import android.view.MenuItem
 import android.view.View
@@ -13,16 +11,16 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ListView
-import androidx.activity.result.contract.ActivityResultContracts
 
 class ListViewRestaurante : AppCompatActivity() {
 
     // Variables
     val arregloRestaurante = BaseDatosMemoria.arregloRestaurante
     var idItemSeleccionado = 0
+    var restauranteId = 0
 
     companion object {
-        lateinit var adaptador: ArrayAdapter<Restaurante>
+        lateinit var adaptadorRestaurante: ArrayAdapter<Restaurante>
     }
 
 
@@ -34,20 +32,20 @@ class ListViewRestaurante : AppCompatActivity() {
         // Inicializar adaptador
 
         val listViewRestaurante = findViewById<ListView>(R.id.lv_list_view_restaurante)
-        adaptador = ArrayAdapter(
+        adaptadorRestaurante = ArrayAdapter(
             this,
             android.R.layout.simple_list_item_1,
             arregloRestaurante
         )
 
-        listViewRestaurante.adapter = adaptador
-        adaptador.notifyDataSetChanged()
+        listViewRestaurante.adapter = adaptadorRestaurante
+        adaptadorRestaurante.notifyDataSetChanged()
 
 
         // Crear un restuarante
-        val botonAniadirListViewRestaurante = findViewById<Button>(R.id.btn_aniadir_list_view)
+        val botonAniadirListViewRestaurante = findViewById<Button>(R.id.btn_aniadir_restaurante)
         botonAniadirListViewRestaurante.setOnClickListener {
-            crearRestaurante(adaptador)
+            crearRestaurante(adaptadorRestaurante)
         }
 
         registerForContextMenu(listViewRestaurante)
@@ -74,17 +72,20 @@ class ListViewRestaurante : AppCompatActivity() {
     override fun onContextItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
             R.id.menu_editar_res -> {
-                irActividadActualizarRestaurante(ActualizarRestaurante::class.java)
+                irActividadDesdeRestaurante(ActualizacionRestaurante::class.java)
                 return true
             }
 
             R.id.menu_eliminar_res -> {
-                eliminarRestaurante(adaptador, idItemSeleccionado)
+                eliminarRestaurante(adaptadorRestaurante, idItemSeleccionado)
                 return true
             }
 
             R.id.menu_platillos_res -> {
-                print("platillos")
+                val restaurate = arregloRestaurante[idItemSeleccionado]
+                restauranteId = restaurate.id
+
+                irActividadDesdeRestaurante(ListViewPlatillo::class.java)
                 return true
             }
 
@@ -99,8 +100,8 @@ class ListViewRestaurante : AppCompatActivity() {
     fun crearRestaurante(
         adaptador: ArrayAdapter<Restaurante>
     ) {
-        val id = findViewById<EditText>(R.id.input_id)
-        val nombreRestaurante = findViewById<EditText>(R.id.input_nombre)
+        val id = findViewById<EditText>(R.id.input_id_res)
+        val nombreRestaurante = findViewById<EditText>(R.id.input_nombre_res)
         val direccion = findViewById<EditText>(R.id.input_direccion)
         val ciudad = findViewById<EditText>(R.id.input_ciudad)
         val michelin = findViewById<EditText>(R.id.input_michelin)
@@ -137,12 +138,15 @@ class ListViewRestaurante : AppCompatActivity() {
 
     // Privadas
 
-    fun irActividadActualizarRestaurante(
+    fun irActividadDesdeRestaurante(
         clase: Class<*>
     ) {
         val intent = Intent(this, clase)
         intent.putExtra("idItemSeleccionado", idItemSeleccionado)
+        intent.putExtra("restauranteId", restauranteId)
 
         startActivity(intent)
     }
+
+
 }
