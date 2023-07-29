@@ -8,14 +8,14 @@
 
     <ListView
         android:id="@+id/lv_list_view_restaurante"
-        android:layout_width="292dp"
-        android:layout_height="458dp"
+        android:layout_width="276dp"
+        android:layout_height="500dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.234" />
+        app:layout_constraintVertical_bias="0.523" />
 
     <Button
         android:id="@+id/btn_aniadir_externo_restaurante"
@@ -27,7 +27,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.843" />
+        app:layout_constraintVertical_bias="0.934" />
 
     <TextView
         android:id="@+id/tv_lista_restaurante"
@@ -43,5 +43,12 @@
         app:layout_constraintStart_toStartOf="@+id/lv_list_view_restaurante"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.682" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
