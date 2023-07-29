@@ -4,5 +4,6 @@ data class Cuenta(
     val imagenPichincha: Int,
     val nombreCuenta: String,
     val numeroCuenta: String,
-    val saldo: String
+    val saldo: String,
+    val imagenEstrella: Int
 )

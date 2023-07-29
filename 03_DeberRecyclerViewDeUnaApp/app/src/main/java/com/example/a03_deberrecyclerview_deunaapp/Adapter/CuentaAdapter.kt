@@ -18,6 +18,7 @@ class CuentaAdapter(val cuentaList: List<Cuenta>) :
         val numeroCuenta = view.findViewById<TextView>(R.id.tv_numeroCuenta)
         val saldo = view.findViewById<TextView>(R.id.tv_saldo)
         val imagenPichincha = view.findViewById<ImageView>(R.id.iv_pichincha)
+        val imagenEstrella = view.findViewById<ImageView>(R.id.iv_star)
 
         fun render(cuenta: Cuenta) {
             nombreCuenta.text = cuenta.nombreCuenta
@@ -35,6 +36,7 @@ class CuentaAdapter(val cuentaList: List<Cuenta>) :
     override fun onBindViewHolder(holder: CuentaviewHolder, position: Int) {
         val cuentaItem = cuentaList[position]
         holder.imagenPichincha.setImageResource(cuentaItem.imagenPichincha)
+        holder.imagenEstrella.setImageResource(cuentaItem.imagenEstrella)
         holder.render(cuentaItem)
     }
 

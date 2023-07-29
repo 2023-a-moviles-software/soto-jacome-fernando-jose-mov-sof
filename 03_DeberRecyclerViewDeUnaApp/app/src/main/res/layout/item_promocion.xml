@@ -11,18 +11,18 @@
     <ImageView
         android:id="@+id/iv_imagenPromocion"
         android:layout_width="340dp"
-        android:layout_height="150dp"
-        android:scaleType="centerCrop"/>
+        android:layout_height="180dp"
+        android:scaleType="centerCrop" />
 
     <TextView
         android:id="@+id/tv_nombrePromocion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="155dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="190dp"
         android:text="Aprovecha los descuentos"
         android:textColor="@color/black"
-        android:textSize="18dp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/iv_imagenPromocion" />
@@ -31,8 +31,8 @@
         android:id="@+id/tv_descripcion"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="185dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="220dp"
         android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras consectetur ex felis, convallis ullamcorper justo semper a. Donec sit amet maximus lectus. Donec fringilla nisl nibh, vitae tincidunt justo commodo nec. Ut ultrices viverra orci ac faucibus. Mauris vestibulum est in felis elementum tincidunt."
         android:textColor="@color/black"
         android:textSize="14sp"
