@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <solid android:color="@color/material_dynamic_primary90" /> <!-- Color de fondo del ConstraintLayout -->
+
+
+    <solid android:color="@color/material_dynamic_neutral80" /> <!-- Color de fondo del ConstraintLayout -->
     <corners android:radius="10dp" /> <!-- Radio de redondeo en dp -->
+
+
 </shape>

@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.a03_deberrecyclerview_deunaapp.Adapter.CuentaAdapter
+import com.example.a03_deberrecyclerview_deunaapp.Adapter.PromocionAdapter
 import com.example.a03_deberrecyclerview_deunaapp.Provider.RecyclerProvider
 
 class MainActivity : AppCompatActivity() {
@@ -14,6 +15,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         initRecyclerCuenta()
         setSnapHelper()
+        initRecyclerPromocion()
     }
 
     private fun initRecyclerCuenta(){
@@ -26,4 +28,12 @@ class MainActivity : AppCompatActivity() {
         val snapHelper = PagerSnapHelper()
         snapHelper.attachToRecyclerView(findViewById(R.id.rv_cuentas))
     }
+
+    private fun initRecyclerPromocion(){
+        val recyclerViewPromocion = findViewById<RecyclerView>(R.id.rv_promociones)
+        recyclerViewPromocion.layoutManager = LinearLayoutManager(this)
+        recyclerViewPromocion.adapter = PromocionAdapter(RecyclerProvider.listPromociones)
+    }
+
+
 }

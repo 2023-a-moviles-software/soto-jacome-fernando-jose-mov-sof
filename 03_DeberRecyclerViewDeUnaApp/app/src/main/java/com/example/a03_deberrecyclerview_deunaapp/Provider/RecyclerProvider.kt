@@ -22,19 +22,19 @@ class RecyclerProvider {
                 "¡Aprovecha esta emocionante promoción! Invita a tus amigos a descargar y" +
                         "usar nuestra increíble aplicación y recibe 3 dólares totalmente GRATIS para" +
                         " disfrutar como prefieras. Comparte la experiencia y diviértete juntos" +
-                        " mientras obtienes recompensas. "
+                        " mientras obtienes recompensas."
             ),
             Promocion(
-                "https://deuna.app/assets/img/illustrations/lading_dso_feb.png",
-                "Descuento Especial para Usuarios Fieles",
+                "https://deuna.app/assets/img/icon/promos/icon_persona.png",
+                "Descuento Especial",
                 "¡Agradecemos tu lealtad! Ahora, por cada compra que realices en " +
                         "nuestra app, recibirás un Descuento Especial del 15% en tu próxima " +
                         "compra. Comparte esta promoción con tus amigos y familiares para que " +
                         "ellos también puedan disfrutar de este increíble beneficio."
             ),
             Promocion(
-                "https://deuna.app/assets/img/illustrations/bg-banner-home-desktop.png",
-                "Tarjeta de Regalo para Nuevos Usuarios",
+                "https://deuna.app/assets/img/illustrations/lading_referidos_feb.png",
+                "Tarjeta de Regalo",
                 "¡Bienvenido a nuestra app! Para celebrar tu llegada, te obsequiamos " +
                         "una Tarjeta de Regalo de 10$ en tu primer registro y compra. Además, " +
                         "si invitas a tus amigos a unirse, ellos también recibirán una Tarjeta de" +
