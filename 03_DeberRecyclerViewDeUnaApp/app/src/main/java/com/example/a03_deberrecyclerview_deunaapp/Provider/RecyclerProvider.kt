@@ -11,7 +11,7 @@ class RecyclerProvider {
             Cuenta(R.drawable.pichincha, "PRINCIPAL", "2209893029", "400.50", R.drawable.icon_star_full),
             Cuenta(R.drawable.pichincha, "ALTERNA", "3301092134", "1000.25", R.drawable.icon_star_empty),
             Cuenta(R.drawable.pichincha, "AHORROS", "5509098765", "800.30", R.drawable.icon_star_empty),
-            Cuenta(R.drawable.pichincha, "GASTOS", "5509098765", "70.30", R.drawable.icon_star_empty)
+            Cuenta(R.drawable.pichincha, "GASTOS", "2233332042", "70.30", R.drawable.icon_star_empty)
         )
 
         // LIST PROMOCIONES

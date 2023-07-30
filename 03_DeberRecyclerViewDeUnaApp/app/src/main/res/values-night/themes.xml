@@ -1,7 +1,13 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.03_DeberRecyclerViewDeUnaApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <item name="colorPrimary">#FFFFFF</item>
+        <item name="colorPrimaryDark">#FFFFFF</item> <!-- Color de la barra de estado -->
+        <item name="colorAccent">#FFFFFF</item>
+    </style>
+
+    <style name="Theme.03_DeberRecyclerViewDeUnaApp" parent="Base.Theme.03_DeberRecyclerViewDeUnaApp">
+        <item name="android:statusBarColor" tools:tagetApi="1">#FFFFFF</item>
+
     </style>
 </resources>

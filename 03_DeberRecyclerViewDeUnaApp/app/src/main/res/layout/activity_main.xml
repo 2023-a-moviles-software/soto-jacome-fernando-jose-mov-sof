@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,12 +11,13 @@
     android:layout_marginTop="0dp"
     android:layout_marginEnd="0dp"
     android:layout_marginBottom="0dp"
+    android:background="#FFFFFF"
     tools:context=".MainActivity">
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="757dp"
         android:fillViewport="true"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -46,8 +49,9 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="30dp"
-                        android:layout_marginTop="45dp"
+                        android:layout_marginTop="35dp"
                         android:text="Hola, Fernando"
+                        android:textColor="#000000"
                         android:textSize="24sp"
                         android:textStyle="bold" />
 
@@ -58,7 +62,8 @@
                         android:layout_marginStart="30dp"
                         android:layout_marginTop="8dp"
                         android:layout_marginBottom="16dp"
-                        android:text="Última sesión: 28 jul. 2023 / 14h49" />
+                        android:text="Última sesión: 28 jul. 2023 / 14h49"
+                        android:textColor="#000000" />
                 </LinearLayout>
 
                 <ImageView
@@ -81,8 +86,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="30dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginBottom="15dp"
                     android:text="Mis Cuentas"
+                    android:textColor="#000000"
                     android:textSize="20sp"
                     android:textStyle="bold" />
 
@@ -92,7 +98,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="115dp"
                     android:text="Ver todas "
-                    android:textColor="#673AB7" />
+                    android:textColor="#673AB7"
+                    android:textStyle="bold" />
 
             </LinearLayout>
 
@@ -100,7 +107,7 @@
                 android:id="@+id/rv_cuentas"
                 android:layout_width="340dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="25dp"
+                android:layout_marginStart="20dp"
                 android:layout_marginBottom="10dp"
                 android:paddingLeft="5dp">
 
@@ -111,23 +118,34 @@
                 android:layout_width="173dp"
                 android:layout_height="34dp"
                 android:layout_marginStart="30dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="15dp"
                 android:layout_marginBottom="10dp"
                 android:text="Promociones"
+                android:textColor="#000000"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rv_promociones"
-                android:layout_width="330dp"
+                android:layout_width="340dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="22dp"
+                android:layout_marginRight="10dp"
                 android:orientation="vertical">
 
             </androidx.recyclerview.widget.RecyclerView>
 
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
+
+    <View
+        android:id="@+id/lineSeparator2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/material_dynamic_neutral80"
+        app:layout_constraintBottom_toTopOf="@id/toolbar3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar3"
@@ -169,7 +187,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Inicio"
-                    android:textColor="#000000"
+                    android:textColor="#3F2A55"
                     android:textStyle="bold" />
 
             </LinearLayout>
@@ -219,5 +237,30 @@
 
         </LinearLayout>
     </androidx.appcompat.widget.Toolbar>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="190dp"
+        android:layout_height="65dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="72dp"
+        android:backgroundTint="#3F2A55"
+        android:text="Escanear QR"
+        android:textAlignment="textStart"
+        android:textColor="#FFFFFF"
+        android:textColorHighlight="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="90dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/icon_qr" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
