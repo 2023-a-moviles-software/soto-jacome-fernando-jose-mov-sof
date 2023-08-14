@@ -1,1 +1,19 @@
-[{"id":2,"nombre":"FuegoAlSol","direccion":"Veintimilla","ciudad":"Quito","michelin":1,"pais":"Ecuador","platillos":[{"id":1,"nombre":"Filet minong en salsa de vino","descripcion":"Platillo selecto","precio":17.0,"restauranteId":2}]}]
+[
+  {
+    "id": 2,
+    "nombre": "FuegoAlSol",
+    "direccion": "Veintimilla",
+    "ciudad": "Quito",
+    "michelin": 1,
+    "pais": "Ecuador",
+    "platillos": [
+      {
+        "id": 1,
+        "nombre": "Filet minong en salsa de vino",
+        "descripcion": "Platillo selecto",
+        "precio": 17.0,
+        "restauranteId": 2
+      }
+    ]
+  }
+]
