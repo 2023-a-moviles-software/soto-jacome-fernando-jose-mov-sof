@@ -129,14 +129,14 @@ class SQLCrud(private val dbConnection: Connection) {
 
     // DELETE
     fun eliminarRestaurante(restauranteId: Int) {
-        if (validarID(restauranteId))  throw IllegalArgumentException("ID inválido: No es un entero"); ;
+        validarID(restauranteId)
         val stmt = dbConnection.prepareStatement("DELETE FROM Restaurantes WHERE id = ?")
         stmt.setInt(1, restauranteId)
         stmt.executeUpdate()
     }
 
     fun eliminarPlatillo(platilloId: Int) {
-        if (validarID(platilloId))  throw IllegalArgumentException("ID inválido: No es un entero"); ;
+        validarID(platilloId)
         val stmt = dbConnection.prepareStatement("DELETE FROM Platillos WHERE id = ?")
         stmt.setInt(1, platilloId)
         stmt.executeUpdate()
@@ -144,7 +144,7 @@ class SQLCrud(private val dbConnection: Connection) {
 
     // Funcionaes complementarias
     fun validarID(id: Int): Boolean {
-        if (id is Int) {
+        if (id !is Int) {
             println("Id inválido: No es un número entero. Ingrese nuevamente.\n")
         }
         return id is Int
