@@ -36,6 +36,7 @@ class Consola {
                     crud.agregarRestaurante(restaurante)
                     println("Restaurante agregado con éxito!")
                 }
+
                 "2" -> {
                     val platillo = Platillo(
                         id = 0, // SQLite genera automáticamente un id único incremental
@@ -47,30 +48,48 @@ class Consola {
                     crud.agregarPlatillo(platillo)
                     println("Platillo agregado con éxito!")
                 }
+
                 "3" -> {
                     val restaurantes = crud.obtenerRestaurantes()
                     println("Restaurantes:")
                     for (restaurante in restaurantes) {
-                        println("ID: ${restaurante.id} Nombre: ${restaurante.nombre}, Ciudad: ${restaurante.ciudad}, " +
-                                "Michelin: " +
-                                "${restaurante.michelin}")
+                        println(
+                            "ID: ${restaurante.id} Nombre: ${restaurante.nombre}, Ciudad: ${restaurante.ciudad}, " +
+                                    "Michelin: " +
+                                    "${restaurante.michelin}"
+                        )
                         println("Platillos:")
                         for (platillo in restaurante.platillos) {
-                            println("- Nombre: ${platillo.nombre}, Descripción: ${platillo.descripcion}, Precio: " +
-                                    "${platillo.precio}")
+                            println(
+                                "- Nombre: ${platillo.nombre}, Descripción: ${platillo.descripcion}, Precio: " +
+                                        "${platillo.precio}"
+                            )
                         }
                     }
                 }
+
                 "4" -> {
                     print("Ingrese el ID del restaurante para mostrar los platillos: ")
                     val restauranteId = readLine()?.toIntOrNull() ?: 0
+                    if (crud.validarID(restauranteId)) continue
+
                     val platillos = crud.obtenerPlatillos(restauranteId)
                     println("Platillos del restaurante: ${restauranteId}")
                     platillos.forEach { platillo ->
-                        println("Nombre: ${platillo.nombre}, Descripción: ${platillo.descripcion}, Precio: ${platillo
-                            .precio}")
+                        println(
+                            "Id: ${platillo.id}, Nombre: ${platillo.nombre}, Descripción: ${
+                                platillo
+                                    .descripcion
+                            }, " +
+                                    "Precio: " +
+                                    "${
+                                        platillo
+                                            .precio
+                                    }"
+                        )
                     }
                 }
+
                 "5" -> {
                     val restaurante = Restaurante(
                         id = readLine()?.toIntOrNull() ?: 0,
@@ -95,24 +114,29 @@ class Consola {
                     crud.actualizarPlatillo(platillo)
                     println("Platillo actualizado con éxito!")
                 }
+
                 "7" -> {
                     print("Ingrese el ID del restaurante a eliminar: ")
                     val restauranteId = readLine()?.toIntOrNull() ?: 0
+                    if (crud.validarID(restauranteId)) continue
+
                     crud.eliminarRestaurante(restauranteId)
                     println("Restaurante eliminado con éxito!")
                 }
+
                 "8" -> {
                     print("Ingrese el ID del platillo a eliminar: ")
                     val platilloId = readLine()?.toIntOrNull() ?: 0
+                    if (crud.validarID(platilloId)) continue
+
                     crud.eliminarPlatillo(platilloId)
                     println("Platillo eliminado con éxito!")
                 }
 
                 "9" -> {
-                    /*app.exportarDatosAJson()
-                    println("Datos exportados a JSON. ¡Hasta luego!")*/
                     break
                 }
+
                 else -> println("Opción inválida. Por favor, elija una opción válida.")
             }
         }

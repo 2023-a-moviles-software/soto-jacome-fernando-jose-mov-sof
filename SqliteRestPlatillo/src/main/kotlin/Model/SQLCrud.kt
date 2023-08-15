@@ -8,7 +8,8 @@ class SQLCrud(private val dbConnection: Connection) {
     fun crearTablas() {
         val statement = dbConnection.createStatement()
 
-        statement.execute("""
+        statement.execute(
+            """
             CREATE TABLE IF NOT EXISTS Restaurantes (
                 id INTEGER PRIMARY KEY,
                 nombre TEXT,
@@ -17,9 +18,11 @@ class SQLCrud(private val dbConnection: Connection) {
                 michelin INTEGER,
                 pais TEXT
             )
-        """)
+        """
+        )
 
-        statement.execute("""
+        statement.execute(
+            """
             CREATE TABLE IF NOT EXISTS Platillos (
                 id INTEGER PRIMARY KEY,
                 nombre TEXT,
@@ -28,12 +31,14 @@ class SQLCrud(private val dbConnection: Connection) {
                 restaurante_id INTEGER,
                 FOREIGN KEY (restaurante_id) REFERENCES Restaurantes (id)
             )
-        """)
+        """
+        )
     }
 
     // CREATE
     fun agregarRestaurante(restaurante: Restaurante) {
-        val stmt = dbConnection.prepareStatement("INSERT INTO Restaurantes (nombre, direccion, ciudad, michelin, pais) VALUES (?, ?, ?, ?, ?)")
+        val stmt =
+            dbConnection.prepareStatement("INSERT INTO Restaurantes (nombre, direccion, ciudad, michelin, pais) VALUES (?, ?, ?, ?, ?)")
         stmt.setString(1, restaurante.nombre)
         stmt.setString(2, restaurante.direccion)
         stmt.setString(3, restaurante.ciudad)
@@ -43,7 +48,8 @@ class SQLCrud(private val dbConnection: Connection) {
     }
 
     fun agregarPlatillo(platillo: Platillo) {
-        val stmt = dbConnection.prepareStatement("INSERT INTO Platillos (nombre, descripcion, precio, restaurante_id) VALUES (?, ?, ?, ?)")
+        val stmt =
+            dbConnection.prepareStatement("INSERT INTO Platillos (nombre, descripcion, precio, restaurante_id) VALUES (?, ?, ?, ?)")
         stmt.setString(1, platillo.nombre)
         stmt.setString(2, platillo.descripcion)
         stmt.setDouble(3, platillo.precio)
@@ -77,7 +83,9 @@ class SQLCrud(private val dbConnection: Connection) {
     }
 
     fun obtenerPlatillos(restauranteId: Int): List<Platillo> {
-        val stmt = dbConnection.prepareStatement("SELECT id, nombre, descripcion, precio FROM Platillos WHERE restaurante_id = ?")
+        validarID(restauranteId) ;
+        val stmt =
+            dbConnection.prepareStatement("SELECT id, nombre, descripcion, precio FROM Platillos WHERE restaurante_id = ?")
         stmt.setInt(1, restauranteId)
         val resultSet = stmt.executeQuery()
 
@@ -98,7 +106,8 @@ class SQLCrud(private val dbConnection: Connection) {
 
     // UPDATE
     fun actualizarRestaurante(restaurante: Restaurante) {
-        val stmt = dbConnection.prepareStatement("UPDATE Restaurantes SET nombre = ?, direccion = ?, ciudad = ?, michelin = ?, pais = ? WHERE id = ?")
+        val stmt =
+            dbConnection.prepareStatement("UPDATE Restaurantes SET nombre = ?, direccion = ?, ciudad = ?, michelin = ?, pais = ? WHERE id = ?")
         stmt.setString(1, restaurante.nombre)
         stmt.setString(2, restaurante.direccion)
         stmt.setString(3, restaurante.ciudad)
@@ -107,8 +116,10 @@ class SQLCrud(private val dbConnection: Connection) {
         stmt.setInt(6, restaurante.id)
         stmt.executeUpdate()
     }
+
     fun actualizarPlatillo(platillo: Platillo) {
-        val stmt = dbConnection.prepareStatement("UPDATE Platillos SET nombre = ?, descripcion = ?, precio = ? WHERE id = ?")
+        val stmt =
+            dbConnection.prepareStatement("UPDATE Platillos SET nombre = ?, descripcion = ?, precio = ? WHERE id = ?")
         stmt.setString(1, platillo.nombre)
         stmt.setString(2, platillo.descripcion)
         stmt.setDouble(3, platillo.precio)
@@ -118,14 +129,24 @@ class SQLCrud(private val dbConnection: Connection) {
 
     // DELETE
     fun eliminarRestaurante(restauranteId: Int) {
+        if (validarID(restauranteId))  throw IllegalArgumentException("ID inválido: No es un entero"); ;
         val stmt = dbConnection.prepareStatement("DELETE FROM Restaurantes WHERE id = ?")
         stmt.setInt(1, restauranteId)
         stmt.executeUpdate()
     }
 
     fun eliminarPlatillo(platilloId: Int) {
+        if (validarID(platilloId))  throw IllegalArgumentException("ID inválido: No es un entero"); ;
         val stmt = dbConnection.prepareStatement("DELETE FROM Platillos WHERE id = ?")
         stmt.setInt(1, platilloId)
         stmt.executeUpdate()
+    }
+
+    // Funcionaes complementarias
+    fun validarID(id: Int): Boolean {
+        if (id is Int) {
+            println("Id inválido: No es un número entero. Ingrese nuevamente.\n")
+        }
+        return id is Int
     }
 }
