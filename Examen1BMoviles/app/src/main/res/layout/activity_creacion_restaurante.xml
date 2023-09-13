@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreacionRestaurante">
+    tools:context=".controler.CreacionRestaurante">
 
 
     <EditText
         android:id="@+id/input_direccion"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Ingrese direccion"
         android:inputType="text"
@@ -46,7 +46,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.391" />
+        app:layout_constraintVertical_bias="0.329" />
 
     <EditText
         android:id="@+id/input_ciudad"
@@ -87,14 +87,14 @@
         app:layout_constraintVertical_bias="0.1" />
 
     <Button
-        android:id="@+id/btn_aniadir_interno_restaurante"
+        android:id="@+id/btn_aniadir_rest_fire"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Aniadir restaurante"
+        android:text="Aniadir Rest Fire"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.787" />
+        app:layout_constraintVertical_bias="0.819" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

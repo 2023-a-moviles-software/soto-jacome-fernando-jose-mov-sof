@@ -13,22 +13,22 @@
         android:theme="@style/Theme.Examen1BMoviles"
         tools:targetApi="31">
         <activity
-            android:name=".CreacionRestaurante"
+            android:name=".controler.CreacionRestaurante"
             android:exported="false" />
         <activity
-            android:name=".ActualizacionPlatillo"
+            android:name=".controler.ActualizacionPlatillo"
             android:exported="false" />
         <activity
-            android:name=".CreacionPlatillo"
+            android:name=".controler.CreacionPlatillo"
             android:exported="false" />
         <activity
-            android:name=".ListViewPlatillo"
+            android:name=".view.ListViewPlatillo"
             android:exported="false" />
         <activity
-            android:name=".ActualizacionRestaurante"
+            android:name=".controler.ActualizacionRestaurante"
             android:exported="false" />
         <activity
-            android:name=".ListViewRestaurante"
+            android:name=".view.ListViewRestaurante"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

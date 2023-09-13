@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActualizacionRestaurante">
+    tools:context=".controler.ActualizacionRestaurante">
 
     <TextView
         android:id="@+id/txt_titulo_activity"
@@ -19,19 +19,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.056" />
 
-    <EditText
-        android:id="@+id/input_update_id_res"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="212dp"
-        android:ems="10"
-        android:hint="Ingre nuevo id"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="@+id/txt_titulo_activity"
-        app:layout_constraintHorizontal_bias="0.538"
-        app:layout_constraintStart_toStartOf="@+id/txt_titulo_activity"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/txt_ingrese_actualizacion"
         android:layout_width="wrap_content"
@@ -44,10 +31,35 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_titulo_activity" />
 
     <EditText
+        android:id="@+id/input_update_nombre_res"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="236dp"
+        android:ems="10"
+        android:hint="Ingrese nuevo nombre"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/txt_ingrese_actualizacion"
+        app:layout_constraintStart_toStartOf="@+id/txt_ingrese_actualizacion"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/input_update_direccion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="304dp"
+        android:ems="10"
+        android:hint="Ingrese nueva direccion"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="@+id/input_update_nombre_res"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/input_update_nombre_res"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
         android:id="@+id/input_update_michelin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="468dp"
+        android:layout_marginTop="440dp"
         android:ems="10"
         android:hint="Ingrese nuevas estrellas michelin"
         android:inputType="text"
@@ -57,29 +69,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/input_update_nombre_res"
+        android:id="@+id/input_update_ciudad"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="276dp"
+        android:layout_marginTop="376dp"
         android:ems="10"
-        android:hint="Ingrese nuevo nombre"
+        android:hint="Ingrese nueva ciudad"
         android:inputType="text"
-        app:layout_constraintEnd_toEndOf="@+id/input_update_id_res"
+        app:layout_constraintEnd_toEndOf="@+id/input_update_direccion"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/input_update_id_res"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/input_update_direccion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="332dp"
-        android:ems="10"
-        android:hint="Ingrese nueva direccion"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="@+id/input_update_nombre_res"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/input_update_nombre_res"
+        app:layout_constraintStart_toStartOf="@+id/input_update_direccion"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -93,26 +92,13 @@
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="@+id/input_update_michelin" />
 
-    <EditText
-        android:id="@+id/input_update_ciudad"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="404dp"
-        android:ems="10"
-        android:hint="Ingrese nueva ciudad"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="@+id/input_update_direccion"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/input_update_direccion"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
-        android:id="@+id/txt_seleccionado_platillo"
+        android:id="@+id/txt_seleccionado_rest"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="36dp"
         android:text="Nombre Rest"
-        android:textSize="24sp"
+        android:textSize="24dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/txt_titulo_activity"
         app:layout_constraintStart_toStartOf="@+id/txt_titulo_activity"
