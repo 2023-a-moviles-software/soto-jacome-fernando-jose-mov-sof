@@ -89,7 +89,7 @@ class ListViewPlatillo : AppCompatActivity() {
             .addOnSuccessListener { // it -> eso (lo que llegue)
                 for (platillo in it){
                     platillo.id
-                    anadirAArregloFruta(platillo)
+                    anadirAArregloPlatillo(platillo)
                 }
                 adaptadorPlatillo.notifyDataSetChanged()
             }
@@ -98,8 +98,8 @@ class ListViewPlatillo : AppCompatActivity() {
             }
     }
 
-    private fun anadirAArregloFruta(platillo: QueryDocumentSnapshot?) {
-        Log.d("Firestore", "ID: ${platillo?.id}")
+    private fun anadirAArregloPlatillo(platillo: QueryDocumentSnapshot?) {
+
         val nombre = platillo?.getString("nombre")
         val descripcion = platillo?.getString("descripcion")
         val precio = platillo?.getDouble("precio")
