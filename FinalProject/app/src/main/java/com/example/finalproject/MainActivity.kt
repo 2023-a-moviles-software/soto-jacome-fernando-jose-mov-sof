@@ -3,22 +3,52 @@ package com.example.finalproject
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.PagerSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.example.finalproject.adapter.ActividadAdapter
-import com.example.finalproject.firestore.RecyclerProvider
+import com.example.finalproject.firestore.Provider
 import com.example.finalproject.pagina.PaginaAmigo
 import com.example.finalproject.pagina.PaginaLogros
+import com.example.finalproject.pagina.PaginaUsuario
 import com.example.finalproject.pagina.PaginaRecordatorio
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 
 class MainActivity : AppCompatActivity() {
+    val auth = FirebaseAuth.getInstance()
+    val user = auth.currentUser
+    val userId = user?.uid
+
     override fun onCreate(savedInstanceState: Bundle?) {
+        //
+        val db = Firebase.firestore
+        val usersCollection = db.collection("usuarios")
+        usersCollection.document(userId.toString())
+            .get()
+            .addOnSuccessListener { documentSnapshot ->
+                if (documentSnapshot.exists()) {
+                    val nombreUsuario = documentSnapshot.getString("nombreUsuario")
+                    Log.d("TAG", "El nombre del usuario es: $nombreUsuario")
+                } else {
+                    Log.d("TAG", "El usuario con UID ${userId.toString()} no existe en Firestore")
+                }
+            }
+            .addOnFailureListener { e ->
+                Log.e("TAG", "Error al recuperar el usuario: $e")
+            }
+
+        //
+
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initRecyclerActividad()
         setSnapHelper()
+
 
         val botonCalendar = findViewById<Button>(
             R.id.btn_calendar
@@ -41,6 +71,14 @@ class MainActivity : AppCompatActivity() {
             irActividad(PaginaAmigo::class.java)
         }
 
+        val botonPerfil = findViewById<Button>(
+            R.id.btn_perfil
+        )
+        botonPerfil.setOnClickListener {
+            irActividad(PaginaUsuario::class.java)
+        }
+
+
     }
 
     fun irActividad(
@@ -58,7 +96,7 @@ class MainActivity : AppCompatActivity() {
         recyclerViewActividad.layoutManager =
             LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
-        val provider = RecyclerProvider()
+        val provider = Provider()
         provider.listActividadLiveData.observe(this) { listActividad ->
             recyclerViewActividad.adapter = ActividadAdapter(listActividad)
         }

@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.finalproject.R
 import com.example.finalproject.adapter.RecordatorioAdapter
-import com.example.finalproject.firestore.RecyclerProvider
+import com.example.finalproject.firestore.Provider
 
 class PaginaRecordatorio : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,7 +19,7 @@ class PaginaRecordatorio : AppCompatActivity() {
         val recyclerViewRecordatorio = findViewById<RecyclerView>(R.id.rv_recordatorio)
         recyclerViewRecordatorio.layoutManager = LinearLayoutManager(this)
 
-        val provider = RecyclerProvider()
+        val provider = Provider()
         provider.listRecordatorioLiveData.observe(this) { listRecordatorio ->
             recyclerViewRecordatorio.adapter = RecordatorioAdapter(listRecordatorio)
         }

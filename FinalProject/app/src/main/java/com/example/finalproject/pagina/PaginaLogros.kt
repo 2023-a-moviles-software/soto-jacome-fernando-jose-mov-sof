@@ -2,13 +2,11 @@ package com.example.finalproject.pagina
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.finalproject.R
 import com.example.finalproject.adapter.LogroAdapter
-import com.example.finalproject.adapter.RecordatorioAdapter
-import com.example.finalproject.firestore.RecyclerProvider
+import com.example.finalproject.firestore.Provider
 
 class PaginaLogros : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,7 +20,7 @@ class PaginaLogros : AppCompatActivity() {
         val recyclerViewLogros = findViewById<RecyclerView>(R.id.rv_logros)
         recyclerViewLogros.layoutManager = LinearLayoutManager(this)
 
-        val provider = RecyclerProvider()
+        val provider = Provider()
         provider.listLogrosLiveData.observe(this) { listLogros ->
             recyclerViewLogros.adapter = LogroAdapter(listLogros)
         }

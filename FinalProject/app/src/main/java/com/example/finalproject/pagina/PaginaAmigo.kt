@@ -6,8 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.finalproject.R
 import com.example.finalproject.adapter.AmigoAdapter
-import com.example.finalproject.adapter.LogroAdapter
-import com.example.finalproject.firestore.RecyclerProvider
+import com.example.finalproject.firestore.Provider
 
 class PaginaAmigo : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +20,7 @@ class PaginaAmigo : AppCompatActivity() {
         val recyclerViewAmigos = findViewById<RecyclerView>(R.id.rv_amigo)
         recyclerViewAmigos.layoutManager = LinearLayoutManager(this)
 
-        val provider = RecyclerProvider()
+        val provider = Provider()
         provider.listAmigosLiveData.observe(this) { listAmigos ->
             recyclerViewAmigos.adapter = AmigoAdapter(listAmigos)
         }

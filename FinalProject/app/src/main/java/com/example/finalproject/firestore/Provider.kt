@@ -6,23 +6,27 @@ import com.example.finalproject.entity.Actividad
 import com.example.finalproject.entity.Amigo
 import com.example.finalproject.entity.Logro
 import com.example.finalproject.entity.Recordatorio
-import com.google.firebase.firestore.QueryDocumentSnapshot
+import com.example.finalproject.entity.Usuario
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
-class RecyclerProvider {
+class Provider {
 
+    val auth = FirebaseAuth.getInstance()
+    val user = auth.currentUser
+    val userId = user?.uid
 
     val listActividadLiveData = MutableLiveData<List<Actividad>>()
     val listRecordatorioLiveData = MutableLiveData<List<Recordatorio>>()
     val listLogrosLiveData = MutableLiveData<List<Logro>>()
     val listAmigosLiveData = MutableLiveData<List<Amigo>>()
+    val listUsuariosLiveData = MutableLiveData<List<Usuario>>()
+    var usuarioActual = Usuario("","","","","","","","","")
 
 
-    var listActividad = arrayListOf<Actividad>()
-    var listRecordatorio = arrayListOf<Recordatorio>()
-    var listLogros = arrayListOf<Logro>()
-    var listAmigos = arrayListOf<Amigo>()
+
+
 
 
     // 1. ---------------------------------------------------------------------------ACTIVIDADES
@@ -30,7 +34,8 @@ class RecyclerProvider {
 
         val db = Firebase.firestore
 
-        val actividadesRefUnico = db.collection("actividades")
+        val actividadesRefUnico = db.collection("actividades").whereEqualTo("userId", userId)
+        var listActividad = arrayListOf<Actividad>()
 
         actividadesRefUnico.get().addOnSuccessListener {
             for (actividad in it) {
@@ -52,13 +57,15 @@ class RecyclerProvider {
 
             }
     }
+
     // -------------------------------------------------------------------------2. RECORDATORIO
     fun cargarRecordatorio() {
 
 
         val db = Firebase.firestore
 
-        val recordatorioRefUnico = db.collection("recordatorios")
+        val recordatorioRefUnico = db.collection("recordatorios").whereEqualTo("userId", userId)
+        var listRecordatorio = arrayListOf<Recordatorio>()
 
         recordatorioRefUnico.get().addOnSuccessListener {
             for (recordatorio in it) {
@@ -94,7 +101,8 @@ class RecyclerProvider {
         Log.d("", "Entré a cargar logros")
 
         val db = Firebase.firestore
-        val logrosRef = db.collection("logros")
+        val logrosRef = db.collection("logros").whereEqualTo("userId", userId)
+        var listLogros = arrayListOf<Logro>()
 
         logrosRef.get()
             .addOnSuccessListener {
@@ -119,7 +127,9 @@ class RecyclerProvider {
     // 4 ------------------------------------------------------------------------------ FRIENDSHIP
     fun cargarAmigos() {
         val db = Firebase.firestore
-        val amigosRef = db.collection("amigos")
+        val amigosRef = db.collection("amigos").whereEqualTo("userId", userId)
+        var listAmigos = arrayListOf<Amigo>()
+
         amigosRef.get()
             .addOnSuccessListener { snapshot ->
                 for (amigo in snapshot) {
@@ -140,5 +150,35 @@ class RecyclerProvider {
             }
     }
 
+    // 5---------------------------------------------------------------------------------USUARIOS
+    fun cargarUsuarios() {
+        val db = Firebase.firestore
+        val usersCollection = db.collection("usuarios")
+        usersCollection.document(userId.toString())
+            .get()
+            .addOnSuccessListener { documentSnapshot ->
+
+
+                if (documentSnapshot.exists()) {
+                    val nombreUsuario = documentSnapshot.getString("nombreUsuario") ?: ""
+
+                    val username = documentSnapshot.getString("username") ?: ""
+                    val fers = documentSnapshot.getString("fers") ?: ""
+                    val fings = documentSnapshot.getString("fings") ?: ""
+                    val peso = documentSnapshot.getString("peso") ?: ""
+                    val estatura = documentSnapshot.getString("estatura") ?: ""
+                    val streak = documentSnapshot.getString("streak") ?: ""
+                    val exp = documentSnapshot.getString("exp") ?: ""
+                    val imgUsuario = documentSnapshot.getString("imgUsuario") ?: ""
+
+                    usuarioActual =
+                        Usuario(nombreUsuario, username, fers, fings, peso, estatura, streak, exp, imgUsuario)
+
+                }
+            }
+            .addOnFailureListener { exception ->
+                // Maneja los errores en caso de fallo
+            }
+    }
 
 }

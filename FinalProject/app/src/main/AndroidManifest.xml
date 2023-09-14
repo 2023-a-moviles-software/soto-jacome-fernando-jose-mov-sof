@@ -13,7 +13,10 @@
         android:theme="@style/Theme.FinalProject"
         tools:targetApi="31">
         <activity
-            android:name=".pagina.PaginaUser"
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".pagina.PaginaUsuario"
             android:exported="false" />
         <activity
             android:name=".pagina.PaginaAmigo"
@@ -28,7 +31,7 @@
             android:name=".item_actividad"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
