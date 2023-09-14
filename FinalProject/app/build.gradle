@@ -47,4 +47,5 @@ dependencies {
     implementation 'androidx.recyclerview:recyclerview:1.2.1'
     implementation('com.google.firebase:firebase-firestore:24.7.1')
     implementation('com.google.firebase:firebase-firestore-ktx:24.7.1')
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
 }

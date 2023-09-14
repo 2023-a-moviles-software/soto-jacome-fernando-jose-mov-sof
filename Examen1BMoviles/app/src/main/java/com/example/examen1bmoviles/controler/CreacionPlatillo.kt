@@ -96,10 +96,4 @@ class CreacionPlatillo : AppCompatActivity() {
     }
 
 
-    fun mostrarNombreRestaurante() {
-        val textViewRestaurante = findViewById<TextView>(R.id.txt_nombre_res_interno)
-        textViewRestaurante.text =
-            BaseDatosMemoria.arregloRestaurante[idItemSeleccionado].nombre
-    }
-
 }

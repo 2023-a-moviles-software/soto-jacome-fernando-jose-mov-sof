@@ -4,15 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".pagina.PaginaRecordatorio">
+    tools:context=".pagina.PaginaLogros">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_recordatorio"
-        android:layout_width="257dp"
-        android:layout_height="375dp"
+        android:id="@+id/rv_logros"
+        android:layout_width="278dp"
+        android:layout_height="389dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.567" />
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

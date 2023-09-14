@@ -1,10 +1,10 @@
-package com.example.finalproject
+package com.example.finalproject.pagina
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.finalproject.adapter.ActividadAdapter
+import com.example.finalproject.R
 import com.example.finalproject.adapter.RecordatorioAdapter
 import com.example.finalproject.firestore.RecyclerProvider
 
