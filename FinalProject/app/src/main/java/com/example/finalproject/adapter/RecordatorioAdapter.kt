@@ -16,13 +16,13 @@ class RecordatorioAdapter(private var listRecordatorio: List<Recordatorio>) :
         val descripcionRecordatorio = view.findViewById<TextView>(R.id.tv_descripcion_recordatorio)
         val fechaRecordatorio = view.findViewById<TextView>(R.id.tv_fecha_recordatorio)
         val horaRecordatorio = view.findViewById<TextView>(R.id.tv_hora_recordatorio)
-        val estaHecho = view.findViewById<TextView>(R.id.btn_esta_hecho_recordatorio)
+
         fun render(recordatorio: Recordatorio) {
             nombreRecordatorio.text = recordatorio.nombreRecordario
             descripcionRecordatorio.text = recordatorio.descripcionRecordatorio
             fechaRecordatorio.text = recordatorio.fechaRecordatorio
             horaRecordatorio.text = recordatorio.horaRecordatorio
-            estaHecho.text = recordatorio.estaHecho.toString()
+            
         }
     }
 
