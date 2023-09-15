@@ -46,11 +46,9 @@ class ActualizacionPlatillo : AppCompatActivity() {
         platillosReferencia
             .get()
             .addOnSuccessListener {
-
                 findViewById<EditText>(R.id.input_update_nombre_platillo).setText(it.data?.get("nombre") as String?)
                 findViewById<EditText>(R.id.input_update_descripcion).setText(it.data?.get("descripcion") as String?)
                 findViewById<EditText>(R.id.input_update_precio).setText((it.data?.get("precio") as Double?).toString())
-
             }
     }
 

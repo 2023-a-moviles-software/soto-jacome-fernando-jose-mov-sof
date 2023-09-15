@@ -65,8 +65,11 @@ class PaginaUsuario : AppCompatActivity() {
 
                     findViewById<TextView>(R.id.tv_nombre_usuario).text =
                         data?.get("nombreUsuario") as? String
-                    // Establece los demás valores en sus respectivos componentes de la misma manera
+
                     //findViewById<ShapeableImageView>(R.id.iv_imagenUsuario).setImageResource(R.drawable.i) // Reemplaza con la lógica para cargar la imagen
+
+                    Glide.with(findViewById<ShapeableImageView>(R.id.iv_imagenUsuario)).load(data?.get("imgUsario")).into(findViewById<ShapeableImageView>(R.id.iv_imagenUsuario))
+
                     findViewById<TextView>(R.id.tv_user_name).text =
                         data?.get("username") as? String
                     findViewById<TextView>(R.id.tv_fers).text = data?.get("fers") as? String

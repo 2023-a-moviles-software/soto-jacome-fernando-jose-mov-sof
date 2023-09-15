@@ -24,27 +24,7 @@ class MainActivity : AppCompatActivity() {
     val userId = user?.uid
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        //
-        val db = Firebase.firestore
-        val usersCollection = db.collection("usuarios")
-        usersCollection.document(userId.toString())
-            .get()
-            .addOnSuccessListener { documentSnapshot ->
-                if (documentSnapshot.exists()) {
-                    val nombreUsuario = documentSnapshot.getString("nombreUsuario")
-                    Log.d("TAG", "El nombre del usuario es: $nombreUsuario")
-                } else {
-                    Log.d("TAG", "El usuario con UID ${userId.toString()} no existe en Firestore")
-                }
-            }
-            .addOnFailureListener { e ->
-                Log.e("TAG", "Error al recuperar el usuario: $e")
-            }
-
-        //
-
-
-        super.onCreate(savedInstanceState)
+       super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initRecyclerActividad()
         setSnapHelper()

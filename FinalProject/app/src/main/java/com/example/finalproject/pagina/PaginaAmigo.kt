@@ -13,11 +13,6 @@ class PaginaAmigo : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_amigo)
         initRecyclerAmigos()
-
-
-
-
-
     }
 
     private fun initRecyclerAmigos() {
