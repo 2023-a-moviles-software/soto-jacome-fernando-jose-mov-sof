@@ -79,7 +79,34 @@
         app:layout_constraintHorizontal_bias="0.945"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_categorias"
-        app:layout_constraintVertical_bias="0.768" />
+        app:layout_constraintVertical_bias="0.777" />
+
+    <Button
+        android:id="@+id/btn_progreso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Progreso"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="#0085f2"
+        app:layout_constraintBottom_toTopOf="@+id/tv_ejercicios_populares"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_categorias"
+        app:layout_constraintVertical_bias="0.777" />
+
+    <Button
+        android:id="@+id/btn_ejercicios"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ejercicios"
+        android:textColor="#FFFFFF"
+        app:backgroundTint="#0085f2"
+        app:layout_constraintBottom_toTopOf="@+id/tv_ejercicios_populares"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.054"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_categorias"
+        app:layout_constraintVertical_bias="0.777" />
 
     <Button
         android:id="@+id/btn_home"
