@@ -7,6 +7,28 @@
     android:background="#FFFFFF"
     tools:context=".MainActivity">
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_busqueda"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_ejercicios_populares">
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/iv_logo"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="36dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/logo"
+        app:layout_constraintBottom_toTopOf="@+id/tv_categorias"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.439" />
+
     <TextView
         android:id="@+id/tv_ejercicios_populares"
         android:layout_width="wrap_content"
@@ -21,10 +43,23 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.923" />
 
+    <TextView
+        android:id="@+id/tv_mensajito"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tu salud importa"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btn_calendar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rv_actividad" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_actividad"
         android:layout_width="match_parent"
-        android:layout_height="402dp"
+        android:layout_height="363dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.6"
@@ -41,10 +76,10 @@
         app:backgroundTint="#0085f2"
         app:layout_constraintBottom_toTopOf="@+id/tv_ejercicios_populares"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.767"
+        app:layout_constraintHorizontal_bias="0.945"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_categorias"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.768" />
 
     <Button
         android:id="@+id/btn_home"
@@ -54,6 +89,7 @@
         android:text="Home"
         android:textColor="#FFFFFF"
         android:textSize="10sp"
+        app:cornerRadius="10dp"
         app:backgroundTint="#0085f2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -70,10 +106,11 @@
         android:text="Calendario"
         android:textColor="#FFFFFF"
         android:textSize="10sp"
+        app:cornerRadius="10dp"
         app:backgroundTint="#0085f2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.329"
+        app:layout_constraintHorizontal_bias="0.335"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.948" />
@@ -86,10 +123,11 @@
         android:text="Logros"
         android:textColor="#FFFFFF"
         android:textSize="10sp"
+        app:cornerRadius="10dp"
         app:backgroundTint="#0085f2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.667"
+        app:layout_constraintHorizontal_bias="0.665"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.948" />
@@ -102,6 +140,7 @@
         android:textColor="#FFFFFF"
         app:backgroundTint="#0085f2"
         android:textSize="10sp"
+        app:cornerRadius="10dp"
         android:drawableTop="@drawable/user"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -115,11 +154,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginTop="132dp"
         android:text="Categorías"
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

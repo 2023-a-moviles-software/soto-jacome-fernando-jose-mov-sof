@@ -44,56 +44,68 @@
 
     <Button
         android:id="@+id/btn_home4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="98dp"
+        android:layout_height="62dp"
+        android:drawableTop="@drawable/house"
         android:text="Home"
-        app:backgroundTint="#0085f2"
         android:textColor="#FFFFFF"
+        android:textSize="10sp"
+        app:cornerRadius="10dp"
+        app:backgroundTint="#0085f2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.015"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.948" />
 
     <Button
         android:id="@+id/btn_logro4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="98dp"
+        android:layout_height="62dp"
+        android:drawableTop="@drawable/trophy"
         android:text="Logros"
-        app:backgroundTint="#0085f2"
         android:textColor="#FFFFFF"
+        android:textSize="10sp"
+        app:cornerRadius="10dp"
+        app:backgroundTint="#0085f2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.644"
+        app:layout_constraintHorizontal_bias="0.665"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.951" />
+        app:layout_constraintVertical_bias="0.948" />
 
     <Button
         android:id="@+id/btn_perfil4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Profile"
-        app:backgroundTint="#0085f2"
+        android:layout_width="98dp"
+        android:layout_height="62dp"
+        android:text="Perfil"
         android:textColor="#FFFFFF"
+        app:backgroundTint="#0085f2"
+        android:textSize="10sp"
+        app:cornerRadius="10dp"
+        android:drawableTop="@drawable/user"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.928"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.951" />
+        app:layout_constraintVertical_bias="0.948" />
 
     <Button
         android:id="@+id/btn_calendar4"
-        android:layout_width="108dp"
-        android:layout_height="45dp"
+        android:layout_width="98dp"
+        android:layout_height="62dp"
+        android:drawableTop="@drawable/calendar"
         android:text="Calendario"
-        app:backgroundTint="#0085f2"
         android:textColor="#FFFFFF"
+        android:textSize="10sp"
+        app:cornerRadius="10dp"
+        app:backgroundTint="#0085f2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.307"
+        app:layout_constraintHorizontal_bias="0.335"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.948" />
@@ -175,9 +187,10 @@
         app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.859" />
+        app:layout_constraintVertical_bias="0.834" />
 
     <TextView
         android:id="@+id/textView"
