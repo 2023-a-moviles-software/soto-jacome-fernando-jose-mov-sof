@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.example.finalproject.Login
+import com.example.finalproject.MainActivity
 import com.example.finalproject.R
 import com.example.finalproject.firestore.Provider
 import com.google.android.material.imageview.ShapeableImageView
@@ -33,6 +34,19 @@ class PaginaUsuario : AppCompatActivity() {
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
             startActivity(intent)
             finish()
+        }
+
+        // Botón Main
+        findViewById<Button>(R.id.btn_home4).setOnClickListener {
+            irActividad(MainActivity::class.java)
+        }
+        // Boton Recordatorio
+        findViewById<Button>(R.id.btn_calendar4).setOnClickListener {
+            irActividad(PaginaRecordatorio::class.java)
+        }
+        // Boton Logros
+        findViewById<Button>(R.id.btn_logro4).setOnClickListener {
+            irActividad(PaginaLogros::class.java)
         }
 
 
@@ -66,6 +80,13 @@ class PaginaUsuario : AppCompatActivity() {
             .addOnFailureListener { exception ->
                 // Manejar errores si es necesario
             }
+    }
+    fun irActividad(
+        clase: Class<*>
+    ) {
+        val intent = Intent(this, clase)
+        startActivity(intent)
+
     }
 }
 
