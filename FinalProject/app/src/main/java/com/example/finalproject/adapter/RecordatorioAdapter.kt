@@ -22,7 +22,7 @@ class RecordatorioAdapter(private var listRecordatorio: List<Recordatorio>) :
             descripcionRecordatorio.text = recordatorio.descripcionRecordatorio
             fechaRecordatorio.text = recordatorio.fechaRecordatorio
             horaRecordatorio.text = recordatorio.horaRecordatorio
-            
+
         }
     }
 
